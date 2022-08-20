@@ -27,7 +27,7 @@ public class VelocitySystem {
 
     @Subscribe
     public void handleProxyInitialization(ProxyInitializeEvent event, Logger logger) {
-        logger.info("Test123");
+
     }
 
     @Subscribe
