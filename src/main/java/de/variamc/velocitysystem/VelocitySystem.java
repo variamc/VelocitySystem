@@ -7,6 +7,8 @@ import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 
+import java.util.logging.Logger;
+
 /**
  * Class created by Kaseax on 2022
  */
@@ -24,8 +26,8 @@ public class VelocitySystem {
     }
 
     @Subscribe
-    public void handleProxyInitialization(ProxyInitializeEvent event) {
-
+    public void handleProxyInitialization(ProxyInitializeEvent event, Logger logger) {
+        logger.info("Test");
     }
 
     @Subscribe
