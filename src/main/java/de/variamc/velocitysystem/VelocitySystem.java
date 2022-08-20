@@ -6,6 +6,8 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
+import de.variamc.velocitysystem.manager.ConfigManager;
+import lombok.Getter;
 
 import java.util.logging.Logger;
 
@@ -14,15 +16,20 @@ import java.util.logging.Logger;
  */
 @Plugin(id = "velocitysystem", name = "VelocitySystem", version = "1.0-SNAPSHOT",
         authors = {"VariaMC, Kaseax"})
+@Getter
 public class VelocitySystem {
 
     private static VelocitySystem instance;
     private final ProxyServer server;
+    private final ConfigManager configManager;
 
     @Inject
     public VelocitySystem(ProxyServer server) {
         instance = this;
         this.server = server;
+        System.out.println("Trying to init ConfigManager...");
+        this.configManager = new ConfigManager();
+        System.out.println("Successfully!");
     }
 
     @Subscribe
@@ -42,4 +49,5 @@ public class VelocitySystem {
     public ProxyServer getServer() {
         return server;
     }
+
 }
