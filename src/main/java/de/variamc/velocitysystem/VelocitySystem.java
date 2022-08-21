@@ -9,8 +9,10 @@ import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import de.variamc.velocitysystem.commands.PingCommand;
+import de.variamc.velocitysystem.commands.punishment.BanCommand;
 import de.variamc.velocitysystem.commands.team.TeamChatCommand;
 import de.variamc.velocitysystem.manager.ConfigManager;
+import de.variamc.velocitysystem.manager.PunishManager;
 import de.variamc.velocitysystem.manager.TeamChatManager;
 import lombok.Getter;
 
@@ -27,6 +29,7 @@ public class VelocitySystem {
     private static VelocitySystem instance;
     private final ProxyServer server;
     private final ConfigManager configManager;
+    private final PunishManager punishManager;
     private final TeamChatManager teamChatManager;
 
     public static String teamChatPrefix = "§8[§c§lTeamchat§8] §7";
@@ -39,6 +42,9 @@ public class VelocitySystem {
         this.configManager = new ConfigManager();
         System.out.println("Successfully!");
 
+        System.out.println("Trying to init Punishmanager...");
+        this.punishManager = new PunishManager();
+        System.out.println("Successfully");
 
         System.out.println("Trying to init TeamChatManager...");
         this.teamChatManager = new TeamChatManager();
@@ -53,6 +59,7 @@ public class VelocitySystem {
 
         commandManager.register(commandManager.metaBuilder("ping").build(), new PingCommand());
         commandManager.register(new TeamChatCommand().build());
+        commandManager.register(new BanCommand().build());
     }
 
     @Subscribe
