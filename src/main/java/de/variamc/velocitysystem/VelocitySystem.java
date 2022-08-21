@@ -46,7 +46,7 @@ public class VelocitySystem {
     }
 
     @Subscribe
-    public void handleProxyInitialization(ProxyInitializeEvent event, Logger logger) {
+    public void handleProxyInitialization(ProxyInitializeEvent event) {
         EventManager eventManager = server.getEventManager();
         CommandManager commandManager = server.getCommandManager();
 
