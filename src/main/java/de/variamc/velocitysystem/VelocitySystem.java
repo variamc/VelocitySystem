@@ -12,6 +12,7 @@ import de.variamc.velocitysystem.commands.PingCommand;
 import de.variamc.velocitysystem.commands.punishment.BanCommand;
 import de.variamc.velocitysystem.commands.punishment.CheckCommand;
 import de.variamc.velocitysystem.commands.punishment.KickCommand;
+import de.variamc.velocitysystem.commands.punishment.MuteCommand;
 import de.variamc.velocitysystem.commands.team.TeamChatCommand;
 import de.variamc.velocitysystem.manager.ConfigManager;
 import de.variamc.velocitysystem.manager.PunishManager;
@@ -64,6 +65,7 @@ public class VelocitySystem {
         commandManager.register(new BanCommand().build());
         commandManager.register(new CheckCommand().build());
         commandManager.register(new KickCommand().build());
+        commandManager.register(new MuteCommand().build());
     }
 
     @Subscribe

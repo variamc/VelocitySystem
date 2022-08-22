@@ -83,7 +83,7 @@ public class BanCommand {
         });
 
         if (targetPlayer != null) {
-            if (targetPlayer.hasPermission("variamc.team.cannotbanned")) {
+            if (targetPlayer.hasPermission("variamc.team.cantbebanned")) {
                 Component parsedMessage = mm.deserialize(resourceBundle.getString("ban_cant_player_message"));
                 return 1;
             }
