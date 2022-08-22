@@ -64,6 +64,7 @@ public class VelocitySystem {
         commandManager.register(new KickCommand().build());
         commandManager.register(new MuteCommand().build());
         commandManager.register(new UnbanCommand().build());
+        commandManager.register(new UnmuteCommand().build());
     }
 
     @Subscribe
