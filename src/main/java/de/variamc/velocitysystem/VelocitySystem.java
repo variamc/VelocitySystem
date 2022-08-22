@@ -9,10 +9,7 @@ import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import de.variamc.velocitysystem.commands.PingCommand;
-import de.variamc.velocitysystem.commands.punishment.BanCommand;
-import de.variamc.velocitysystem.commands.punishment.CheckCommand;
-import de.variamc.velocitysystem.commands.punishment.KickCommand;
-import de.variamc.velocitysystem.commands.punishment.MuteCommand;
+import de.variamc.velocitysystem.commands.punishment.*;
 import de.variamc.velocitysystem.commands.team.TeamChatCommand;
 import de.variamc.velocitysystem.manager.ConfigManager;
 import de.variamc.velocitysystem.manager.PunishManager;
@@ -66,6 +63,7 @@ public class VelocitySystem {
         commandManager.register(new CheckCommand().build());
         commandManager.register(new KickCommand().build());
         commandManager.register(new MuteCommand().build());
+        commandManager.register(new UnbanCommand().build());
     }
 
     @Subscribe
