@@ -11,6 +11,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import de.variamc.velocitysystem.commands.PingCommand;
 import de.variamc.velocitysystem.commands.punishment.*;
 import de.variamc.velocitysystem.commands.team.TeamChatCommand;
+import de.variamc.velocitysystem.listener.LoginListener;
 import de.variamc.velocitysystem.manager.ConfigManager;
 import de.variamc.velocitysystem.manager.PunishManager;
 import de.variamc.velocitysystem.manager.TeamChatManager;
@@ -56,6 +57,8 @@ public class VelocitySystem {
     public void handleProxyInitialization(ProxyInitializeEvent event) {
         EventManager eventManager = server.getEventManager();
         CommandManager commandManager = server.getCommandManager();
+
+        eventManager.register(this, new LoginListener());
 
         commandManager.register(commandManager.metaBuilder("ping").build(), new PingCommand());
         commandManager.register(new TeamChatCommand().build());
