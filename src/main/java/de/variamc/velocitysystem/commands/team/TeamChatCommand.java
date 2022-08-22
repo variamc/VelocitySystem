@@ -26,7 +26,7 @@ public class TeamChatCommand {
     private final String prefix = "§8[§c§lTeamchat§8] §7";
 
     public BrigadierCommand build() {
-        LiteralCommandNode<CommandSource> node = LiteralArgumentBuilder.<CommandSource>literal("teamchat").requires(commandSource -> commandSource.hasPermission("variamc.team"))
+        LiteralCommandNode<CommandSource> node = LiteralArgumentBuilder.<CommandSource>literal("teamchat").requires(commandSource -> commandSource.hasPermission("variamc.teamchat"))
                 .executes(this::sendTeamChatHelp)
                 .then(LiteralArgumentBuilder.<CommandSource>literal("list")
                         .executes(this::sendTeamList))

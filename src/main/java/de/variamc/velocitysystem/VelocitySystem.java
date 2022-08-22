@@ -12,6 +12,7 @@ import de.variamc.velocitysystem.commands.PingCommand;
 import de.variamc.velocitysystem.commands.punishment.*;
 import de.variamc.velocitysystem.commands.team.TeamChatCommand;
 import de.variamc.velocitysystem.listener.LoginListener;
+import de.variamc.velocitysystem.listener.PlayerChatListener;
 import de.variamc.velocitysystem.manager.ConfigManager;
 import de.variamc.velocitysystem.manager.PunishManager;
 import de.variamc.velocitysystem.manager.TeamChatManager;
@@ -59,6 +60,7 @@ public class VelocitySystem {
         CommandManager commandManager = server.getCommandManager();
 
         eventManager.register(this, new LoginListener());
+        eventManager.register(this, new PlayerChatListener());
 
         commandManager.register(commandManager.metaBuilder("ping").build(), new PingCommand());
         commandManager.register(new TeamChatCommand().build());
