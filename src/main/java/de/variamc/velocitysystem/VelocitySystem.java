@@ -16,6 +16,7 @@ import de.variamc.velocitysystem.listener.PlayerChatListener;
 import de.variamc.velocitysystem.manager.ConfigManager;
 import de.variamc.velocitysystem.manager.PunishManager;
 import de.variamc.velocitysystem.manager.TeamChatManager;
+import de.variamc.velocitysystem.objects.user.UserCache;
 import lombok.Getter;
 
 import java.util.logging.Logger;
@@ -34,7 +35,13 @@ public class VelocitySystem {
     private final PunishManager punishManager;
     private final TeamChatManager teamChatManager;
 
+    private UserCache users;
+
     public static String teamChatPrefix = "§8[§c§lTeamchat§8] §7";
+
+    public static final String report_prefix = "§8[§cReport§8] §7";
+
+
 
     @Inject
     public VelocitySystem(ProxyServer server) {
@@ -51,6 +58,10 @@ public class VelocitySystem {
         System.out.println("Trying to init TeamChatManager...");
         this.teamChatManager = new TeamChatManager();
         System.out.println("Successfully");
+
+        System.out.println("Trying to init UserCache...");
+        this.users = new UserCache();
+        System.out.println("Successfully");
         System.out.println("Successfully started.");
     }
 
@@ -61,7 +72,6 @@ public class VelocitySystem {
 
         eventManager.register(this, new LoginListener());
         eventManager.register(this, new PlayerChatListener());
-
         commandManager.register(commandManager.metaBuilder("ping").build(), new PingCommand());
         commandManager.register(new TeamChatCommand().build());
         commandManager.register(new BanCommand().build());
